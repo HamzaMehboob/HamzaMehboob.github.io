@@ -62,11 +62,75 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background: #f9f9f9; /* Default light background for sections */
 }
 
 .home {
     background: linear-gradient(135deg, #1F3A93, #00C4B4);
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 80px 20px;
+}
+
+.home-window {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.top-window {
+    background: linear-gradient(135deg, #d4a5ff, #f0f4c3);
+    color: #333;
+    transform: translateY(-20px);
+    margin-top: 40px;
+}
+
+.bottom-window {
+    background: linear-gradient(135deg, #1F3A93, #00C4B4);
+    color: #fff;
+}
+.about {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+}
+
+.technologies {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    color: #333;
+}
+
+.experience {
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);
+    color: #333;
+}
+
+.education {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    color: #333;
+}
+
+.projects {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    color: #333;
+}
+
+.contact {
+    background: linear-gradient(135deg, #fbc7d4, #9796f0);
+    color: #333;
+}
+
+footer {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
 }
 
 .home-content {
