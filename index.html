@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hamza Mehboob - Portfolio">
+    <title>Hamza Mehboob - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Hamza Mehboob</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="section home">
+        <div class="home-content">
+            <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Hi, I'm Hamza Mehboob</h1>
+            <p>Embedded | Firmware | IoT | AI | TinyML | Developer</p>
+            <a href="#contact" class="btn">Connect with Me</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <h2>About Me</h2>
+        <p>I'm a Senior Embedded & Firmware Engineer with over eight years of experience designing innovative IoT solutions and embedded systems. From leading the development of Smart RTUs at Innovative Systems to delivering secure IoT gateways for Industrial Scientific and Aware360 at PowerSoft19, I specialize in embedded C/C++, RTOS, Linux, and protocols like IEC 60870 and MQTT. My work spans the full product lifecycle, from bare-metal firmware to cloud-integrated web interfaces, with a focus on security and performance. I hold an M.Sc. in Electrical Engineering from UET Lahore and thrive on solving complex technical challenges. When I'm not coding, I enjoy diving into tech courses or hitting the trails for a hike.</p>
+    </section>
+
+    <section id="technologies" class="section technologies">
+        <h2>Technologies</h2>
+        <div class="tech-grid">
+            <div class="tech-item">Embedded C/C++</div>
+            <div class="tech-item">RTOS (FreeRTOS, TI-RTOS, Micrium)</div>
+            <div class="tech-item">Linux (Yocto, Buildroot, Kernel Drivers)</div>
+            <div class="tech-item">AI/ML (TensorFlow, Keras, TinyML)</div>
+            <div class="tech-item">IoT Protocols (MQTT, Modbus, IEC 60870, IEC 61850)</div>
+            <div class="tech-item">Interfaces (UART, SPI, I2C, CAN, Ethernet)</div>
+            <div class="tech-item">Connectivity (Wi-Fi, Bluetooth, Zigbee, Cellular, NFC)</div>
+            <div class="tech-item">DevOps (Git, Jira, CI/CD, Pytest)</div>
+            <div class="tech-item">UI/UX (Qt, wxWidgets, WPF, Android Studio)</div>
+            <div class="tech-item">Hardware (STM32, PIC, Raspberry Pi, PCB Design)</div>
+            <div class="tech-item">Security (TLS, SHA Cryptography, Secure Boot)</div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Firmware Engineer</h3>
+                    <p><a href="https://www.innovativesystems.com.sa/" target="_blank">Innovative Systems</a>, Riyadh, Saudi Arabia</p>
+                    <button class="toggle-btn">Show Details</button>
+                </div>
+                <div class="timeline-content">
+                    <p>Sep 2023 - Present</p>
+                    <p>Led the design and development of Smart RTUs for grid management, managing a 3-person team. Developed multi-threaded embedded Linux C++ applications using UART and Ethernet. Integrated IEC 60870-5-104 protocol, ported open-source libraries, and implemented cybersecurity measures. Built Yocto and Buildroot-based Linux images for STM32MP13X and SAM9X60, supported kernel drivers, and developed a Qt-based configurator with HTTPD web UI.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Senior Specialist Engineer</h3>
+                    <p><a href="https://www.u-blox.com/" target="_blank">u-blox</a>, Remote</p>
+                    <button class="toggle-btn">Show Details</button>
+                </div>
+                <div class="timeline-content">
+                    <p>Jan 2021 - Aug 2023</p>
+                    <p>Developed cross-platform C++ desktop applications using wxWidgets for AT command automation. Automated GUI testing with Selenium, WinAppDriver, and Pytest. Implemented 3GPP 27.10 Mux protocol stack for modem communication and optimized log analysis for 3G/4G chipsets using Python and Wireshark.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Embedded Systems Engineer</h3>
+                    <p><a href="https://www.powersoft19.com/" target="_blank">PowerSoft19</a>, Remote</p>
+                    <button class="toggle-btn">Show Details</button>
+                </div>
+                <div class="timeline-content">
+                    <p>Jun 2018 - Dec 2020</p>
+                    <p>Developed IoT gateways and cellular-connected devices for <a href="https://www.indsci.com/" target="_blank">Industrial Scientific</a> (RGX Gateway) and Aware360. Implemented FOTA systems and cellular stack tests using FreeRTOS and Micrium allotment on Linux gateways (TGX Gateway). Designed SHA-256 encrypted Wi-Fi/Ethernet web interfaces and tested Telit HE910/LE910 modems. Led Jira-based agile workflows and collaborated with international clients.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Firmware Design Engineer</h3>
+                    <p>KBK Electronics, Lahore</p>
+                    <p>Feb 2016 - Jun 2018</p>
+                    <button class="toggle-btn">Show Details</button>
+                </div>
+                <div class="timeline-content">
+                    <p>Engineered firmware for 3-phase Smart Energy Meters (71M6543G SoC), handling metering, billing, and power management. Developed WPF-based Windows software for meter communication over optical ports. Ensured IEC 62056/DLMS compliance and participated in hardware design reviews.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Application Engineer</h3>
+                    <p>Hunch Automation, Lahore</p>
+                    <button class="toggle-btn">Show Details</button>
+                </div>
+                <div class="timeline-content">
+                    <p>Nov 2015 - Jan 2016</p>
+                    <p>Developed Android apps and Windows tools for Modbus-based energy monitoring systems. Built firmware using PIC16/PIC24, integrating RS232/RS485 communications with Delta PLC/HMI systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <p><strong>M.Sc. in Electrical Engineering (Computer Major)</strong><br>UET Lahore | 2017 - 2019 | CGPA: 3.6/4.0</p>
+        </div>
+        <div class="education-item">
+            <p><strong>B.Sc. in Electrical Engineering</strong><br>UET Lahore | 2011 - 2015 | CGPA: 3.3/4.0</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+             <h3>RGX Gateway for Industrial Scientific</h3>
+<p>Developed firmware for the RGX Gateway, a wireless cloud-connected device for real-time gas monitoring in hazardous locations. Implemented secure IoT communication using FreeRTOS and LENS Wireless, with SHA-256 encrypted Wi-Fi/Ethernet interfaces. Technologies used: Embedded C, FreeRTOS, Linux, MQTT, SHA
+
+-256. <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" target="_blank">Learn more</a>.</p>
+                <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" class="btn" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>TGX Gateway for Industrial Scientific</h3>
+                <p>Designed and implemented firmware for the TGX Gateway, a vehicle-installed IoT device for remote gas monitoring using cellular and satellite connectivity. Built Linux-based gateways with FOTA capabilities and tested Telit HE910/LE910 modems. Technologies used: Embedded C, Linux, Micrium RTOS, Cellular (3G/4G). <a href="https://www.indsci.com/en/gas-detectors/wireless/tgx" target="_blank">Learn more</a>.</p>
+                <a href="https://www.indsci.com/en/gas-detectors/wireless/tgxtm" class="btn" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Smart RTU for Grid Management</h3>
+                <p>Led the development of a Smart Remote Terminal Unit for grid management, integrating IEC 60870-5-104 protocol and secure communication. Built Yocto/Buildroot-based Linux images and a Qt configurator with HTTPD web UI. Technologies used: Embedded C++, Linux, Qt, IEC 60870, HTTPD.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Smart Energy Meter Firmware</h3>
+                <p>Engineered firmware for 3-phase Smart Energy Meters using the 71M6543G SoC, ensuring IEC 62056/DLMS compliance. Developed WPF-based Windows software for meter communication. Technologies used: Embedded C, WPF, IEC 62056, Optical Communication.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:hamzamehboob103@gmail.com">hamzamehboob103@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/hamzamehboob103" target="_blank">hamzamehboob103</a></p>
+        <p>GitHub: <a href="https://github.com/HamzaMehboob" target="_blank">HamzaMehboob</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hamza Mehboob. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/hamzamehboob103" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/HamzaMehboob" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
