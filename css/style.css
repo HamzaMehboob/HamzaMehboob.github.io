@@ -8,6 +8,7 @@
 body {
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 .navbar {
@@ -48,6 +49,12 @@ body {
     color: #1F3A93;
 }
 
+.nav-links a.active {
+    color: #4861ff;
+    border-bottom: 2px solid #4861ff;
+    font-weight: 600;
+}
+
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -56,13 +63,13 @@ body {
 
 .section {
     padding: 80px 50px;
-    min-height: 100vh;
+    min-height: 100vh; /* Full height for desktop */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #f9f9f9; /* Default light background for sections */
+    background: #f9f9f9;
 }
 
 .home {
@@ -97,40 +104,13 @@ body {
     color: #fff;
 }
 
-.about {
+.about, .experience, .education, .technologies, .projects, .contact {
     background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
     color: #333;
 }
-    
-.experience {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    color: #333;
-}
-    
-.education {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    color: #333;
-}
-
-.contact {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    color: #333;
-}
-
-.technologies {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    color: #333;
-}
-
-
-.projects {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    color: #333;
-}
-
 
 footer {
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    background: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -158,6 +138,14 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -167,6 +155,7 @@ h2 {
     border-radius: 5px;
     margin-top: 20px;
     transition: background 0.3s;
+    touch-action: manipulation; /* Improve touch interaction */
 }
 
 .btn:hover {
@@ -224,6 +213,7 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    touch-action: manipulation;
 }
 
 .toggle-btn:hover {
@@ -255,13 +245,6 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
 .social-links a {
     color: #fff;
     margin: 0 10px;
@@ -273,26 +256,24 @@ footer {
     color: #1F3A93;
 }
 
-.nav-links a:hover {
-    color: #1F3A93;
-}
-
-.nav-links a.active {
-    color: #4861ff;
-    border-bottom: 2px solid #4861ff;
-    font-weight: 600;
-}
-
 @media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px; /* Reduced padding for mobile */
+    }
+
+    .logo {
+        font-size: 1.2rem; /* Smaller logo on mobile */
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 60px; /* Adjusted for smaller navbar */
         left: 0;
         width: 100%;
         background: #fff;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -300,11 +281,123 @@ footer {
         display: flex;
     }
 
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
     .menu-toggle {
         display: block;
     }
 
     .section {
-        padding: 60px 20px;
+        padding: 50px 10px; /* Reduced padding for mobile */
+        min-height: auto; /* Compact sections on mobile */
+    }
+
+    .home {
+        padding: 50px 10px;
+    }
+
+    .home-window {
+        padding: 15px;
+        max-width: 90%; /* Responsive width */
+    }
+
+    .top-window {
+        transform: translateY(-10px); /* Reduced transform */
+        margin-top: 20px;
+    }
+
+    .home-content {
+        max-width: 90%;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 8px;
+    }
+
+    .tech-item {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .timeline {
+        max-width: 90%;
+    }
+
+    .timeline-item {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .toggle-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .education-item {
+        padding: 10px;
+        margin: 10px 0;
+        max-width: 90%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 15px;
+        max-width: 90%;
+    }
+
+    .project-card {
+        padding: 10px;
+    }
+
+    .social-links a {
+        margin: 0 8px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1rem;
+    }
+
+    .menu-toggle {
+        font-size: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
     }
 }
