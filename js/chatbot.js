@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatSend = document.getElementById('chat-send');
     const chatMessages = document.getElementById('chat-messages');
 
-    // Extract portfolio content
-    const portfolioContent = document.body.innerText.substring(0, 1000); // Limit to avoid token overflow
+    // Extract portfolio content (reduced to 500 chars)
+    const portfolioContent = document.body.innerText.substring(0, 500);
 
     // Placeholder for resume text (replace with actual resume text)
     const resumeText = `
@@ -105,14 +105,6 @@ Certifications & Achievements
     });
 
     // Send message and get AI response
-    chatSend.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
-    });
-
     async function sendMessage() {
         const message = chatInput.value.trim();
         if (!message) return;
@@ -127,37 +119,30 @@ Certifications & Achievements
 
         try {
             const response = await axios.post(
-                'https://openrouter.ai/api/v1/chat/completions',
+                'https://lisa-backend-vz4m.onrender.com/api/chat',
                 {
-                    model: 'mistralai/mistral-7b-instruct:free',
+                    model: 'meta-llama/llama-4-maverick:free',
                     messages: [
                         {
-                            role: 'system',
+                            role: 'AI Personal Assistant',
                             content: `You are Lisa, an AI assistant you have to tell about Hamza Mehboob, your boss, a Senior Embedded & Firmware Engineer with over eight years of experience in embedded systems, IoT, AI, TinyML, and firmware development. Respond in a professional, concise, and friendly tone. Be precise to your answers. Use less words. Use the following context to answer queries accurately:
 
-**Portfolio Content (https://HamzaMehboob.github.io):**
-${portfolioContent}
+**Portfolio (https://HamzaMehboob.github.io):** ${portfolioContent}
+**Resume:** ${resumeText}
+**Details:** Expertise in Embedded C/C++, RTOS, IoT (MQTT, Modbus), AI/ML (TensorFlow, TinyML), interfaces (UART, SPI), hardware (STM32, Raspberry Pi). Projects: RGX Gateway, TGX Gateway, Smart RTU. Contact: hamzamehboob103@gmail.com, LinkedIn (hamzamehboob103), GitHub (HamzaMehboob).
 
-**Resume:**
-${resumeText}
-
-**Details:**
-- Expertise: Embedded C/C++, RTOS (FreeRTOS, TI-RTOS, Micrium), Linux (Yocto, Buildroot), IoT protocols (MQTT, Modbus, IEC 60870, IEC 61850), AI/ML (TensorFlow, Keras, TinyML), interfaces (UART, SPI, I2C, CAN, Ethernet), connectivity (Wi-Fi, Bluetooth, Zigbee, Cellular, NFC), DevOps (Git, Jira, CI/CD, Pytest), UI/UX (Qt, wxWidgets, WPF, Android Studio), hardware (STM32, PIC, Raspberry Pi, PCB design), security (TLS, SHA Cryptography, Secure Boot).
-- Experience: Firmware Engineer at Innovative Systems (2023-Present, Smart RTUs), Senior Specialist Engineer at u-blox (2021-2023, C++ apps), Embedded Systems Engineer at PowerSoft19 (2018-2020, IoT gateways), Firmware Design Engineer at KBK Electronics (2016-2018, Smart Energy Meters), Application Engineer at Hunch Automation (2015-2016, Modbus systems).
-- Projects: RGX Gateway (Industrial Scientific, FreeRTOS, MQTT), TGX Gateway (Linux, Cellular), Smart RTU (IEC 60870), Smart Energy Meter (IEC 62056).
-- Education: M.Sc. Electrical Engineering (UET Lahore, 2017-2019, CGPA 3.6), B.Sc. Electrical Engineering (UET Lahore, 2011-2015, CGPA 3.3).
-For questions outside this scope, suggest contacting Hamza via email (hamzamehboob103@gmail.com), LinkedIn (hamzamehboob103), or GitHub (HamzaMehboob).`
+For unrelated queries, suggest contacting Hamza.`
                         },
                         { role: 'user', content: message }
                     ],
-                    max_tokens: 150,
-                    temperature: 0.7
+                    max_tokens: 200,
+                    temperature: 0.7,
+                    stop: ['\n', '.'], // Ensure complete sentences
+                    provider: { data_collection: 'deny' } // Prevent prompt logging
                 },
                 {
                     headers: {
-                        //'Authorization': 'Bearer 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', // Replace with your OpenRouter API key
-                        'Authorization': 'Bearer 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',
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     }
                 }
             );
@@ -169,19 +154,21 @@ For questions outside this scope, suggest contacting Hamza via email (hamzamehbo
             chatMessages.scrollTop = chatMessages.scrollHeight;
         } catch (error) {
             console.error('Error fetching AI response:', error.response ? error.response.data : error.message);
-            let errorText = 'Sorry, Lisa couldn’t respond. Please try again or contact Hamza via the Contact section.';
+            let errorText = 'Sorry, Lisa couldn’t respond. Try again or contact Hamza at hamzamehboob103@gmail.com.';
             if (error.response) {
                 if (error.response.status === 401) {
                     errorText = 'Lisa’s API key is invalid. Please contact Hamza to fix this.';
                 } else if (error.response.status === 429) {
                     errorText = 'Lisa’s request limit is reached. Try again later or contact Hamza.';
                 } else if (error.response.status >= 500) {
-                    errorText = 'Lisa’s model is currently unavailable. Try again later.';
+                    errorText = 'Lisa’s model or backend is unavailable. Try again later.';
                 } else if (error.response.status === 400) {
                     errorText = 'Lisa received an invalid request. Please rephrase your query.';
                 }
             } else if (error.code === 'ERR_NETWORK') {
-                errorText = 'Network error: Lisa can’t connect to the server. Check your internet and try again.';
+                errorText = 'Network error: Lisa can’t connect to the server. Check your internet.';
+            } else if (error.message.includes('CORS')) {
+                errorText = 'CORS issue: Lisa can’t connect to the backend. Contact Hamza to fix this.';
             }
             const errorMessage = document.createElement('div');
             errorMessage.className = 'chat-message bot';
@@ -191,9 +178,17 @@ For questions outside this scope, suggest contacting Hamza via email (hamzamehbo
         }
     }
 
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
     // Initial greeting
     const greeting = document.createElement('div');
     greeting.className = 'chat-message bot';
-    greeting.textContent = 'Hi! I’m Lisa, Hamza’s AI Assistant. Ask me about his embedded systems, IoT, AI projects, or resume details!';
+    greeting.textContent = 'Hi! I’m Lisa, Hamza’s AI Assistant. Ask about his embedded systems, IoT, AI projects, or resume!';
     chatMessages.appendChild(greeting);
 });
