@@ -207,6 +207,23 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <!-- Add this just before </body>, replacing previous chatbot HTML -->
+    <div id="chat-widget-container" class="hidden">
+        <div id="chat-popup">
+            <div class="chat-header">
+                <h3>Lisa, Hamza’s AI Assistant</h3>
+                <span id="chat-close" class="cursor-pointer">✕</span>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input">
+                <textarea id="chat-input-text" placeholder="Ask Lisa about my embedded systems, IoT, or resume details..."></textarea>
+                <button id="chat-send">Send</button>
+            </div>
+        </div>
+    </div>
+    <button id="chat-toggle" class="chat-toggle">💬 Lisa</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 </html>
 
