@@ -121,7 +121,7 @@ Certifications & Achievements
             const response = await axios.post(
                 'https://lisa-backend-vz4m.onrender.com/api/chat',
                 {
-                    model: 'meta-llama/llama-4-maverick:free',
+                    model: 'mistralai/mistral-7b-instruct:free',
                     messages: [
                         {
                             role: 'AI Personal Assistant',
