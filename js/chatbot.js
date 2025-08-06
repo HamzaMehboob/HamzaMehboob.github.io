@@ -155,7 +155,8 @@ For questions outside this scope, suggest contacting Hamza via email (hamzamehbo
                 },
                 {
                     headers: {
-                        'Authorization': 'Bearer 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', // Replace with your OpenRouter API key
+                        //'Authorization': 'Bearer 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', // Replace with your OpenRouter API key
+                        'Authorization': 'Bearer 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',
                         'Content-Type': 'application/json',
                     }
                 }
