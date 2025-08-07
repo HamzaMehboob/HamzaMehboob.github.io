@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input-text');
     const chatSend = document.getElementById('chat-send');
     const chatMessages = document.getElementById('chat-messages');
-
+    
+    // Open chat widget by default
+    chatContainer.classList.remove('hidden');
+    chatInput.focus();
     // Extract portfolio content (reduced to 500 chars)
     const portfolioContent = document.body.innerText.substring(0, 500);
 
@@ -125,7 +128,7 @@ Certifications & Achievements
                     messages: [
                         {
                             role: 'AI Personal Assistant',
-                            content: `You are Lisa, an AI assistant you have to tell about Hamza Mehboob, your boss, a Senior Embedded & Firmware Engineer with over eight years of experience in embedded systems, IoT, AI, TinyML, and firmware development. Respond in a professional, concise, and friendly tone. Be precise to your answers. Use less words. Use the following context to answer queries accurately:
+                            content: `You are Lisa, an funny AI assistant you have to tell about Hamza Mehboob, your boss, a Senior Embedded & Firmware Engineer with over ten years of experience in embedded systems, IoT, AI, TinyML, and firmware development. Respond in a funny, professional, concise, and friendly tone. Be precise to your answers. Use less words. Use the following context to answer queries accurately:
 
 **Portfolio (https://HamzaMehboob.github.io):** ${portfolioContent}
 **Resume:** ${resumeText}
@@ -166,7 +169,8 @@ For unrelated queries, suggest contacting Hamza.`
                     errorText = 'Lisa received an invalid request. Please rephrase your query.';
                 }
             } else if (error.code === 'ERR_NETWORK') {
-                errorText = 'Network error: Lisa can’t connect to the server. Check your internet.';
+                errorText = 'I already had enough questions today. Please come tomorrow.';
+                //errorText = 'Network error: Lisa can’t connect to the server. Check your internet.';
             } else if (error.message.includes('CORS')) {
                 errorText = 'CORS issue: Lisa can’t connect to the backend. Contact Hamza to fix this.';
             }
@@ -189,6 +193,11 @@ For unrelated queries, suggest contacting Hamza.`
     // Initial greeting
     const greeting = document.createElement('div');
     greeting.className = 'chat-message bot';
-    greeting.textContent = 'Hi! I’m Lisa, Hamza’s AI Assistant. Ask about his embedded systems, IoT, AI projects, or resume!';
+    greeting.textContent = "Hi! I’m Lisa, Hamza’s AI Assistant. Ask about his embedded systems, IoT, AI projects, or resume!";
     chatMessages.appendChild(greeting);
+
+    const greeting2 = document.createElement('div');
+    greeting2.className = 'chat-message bot';
+    greeting2.textContent = "Note: Due to free backend server, first reply can take 20-30 sec.";
+    chatMessages.appendChild(greeting2);
 });
