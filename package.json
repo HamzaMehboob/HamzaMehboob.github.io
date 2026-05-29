@@ -1,0 +1,8 @@
+{
+  "name": "hamza-portfolio",
+  "private": true,
+  "description": "Hamza Mehboob portfolio site",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js"
+  }
+}

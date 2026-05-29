@@ -13,197 +13,209 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hamza's Portfolio">
     <title>Hamza's Portfolio</title>
+    <script>
+    (function(){try{var d=localStorage.getItem('darkMode')==='true';document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){}})();
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="assets/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div id="dynamic-background" aria-hidden="true">
+        <div class="mesh-orb orb-1"></div>
+        <div class="mesh-orb orb-2"></div>
+        <div class="mesh-orb orb-3"></div>
+        <div class="mesh-orb orb-4"></div>
+    </div>
+
     <header>
         <nav class="navbar">
-            <div class="logo">Hamza's Portfolio</div>
+            <div class="logo" data-i18n="logo_text">Hamza's Portfolio</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#technologies">Technologies</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#technologies" data-i18n="nav_technologies">Technologies</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#education" data-i18n="nav_education">Education</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
             </ul>
+            <div class="header-controls">
+                <div class="control-group">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <select id="languageSelect" aria-label="Select language"></select>
+                </div>
+                <div class="control-group">
+                    <i class="fas fa-palette" aria-hidden="true"></i>
+                    <select id="paletteSelect" aria-label="Select color palette"></select>
+                </div>
+                <button id="darkModeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
-<!-- 
-    <section id="home" class="section home">
-        <div class="home-content">
-            <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Hi, I'm Hamza Mehboob</h1>
-            <p>Embedded | Firmware | IoT | AI | TinyML | Developer</p>
-            <a href="#contact" class="btn">Connect with Me</a>
-        </div>
-    </section>
--->
+
     <section id="home" class="section home">
         <div class="home-window top-window">
             <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Hi, I'm Hamza Mehboob</h1>
-            <p>AI-Powered Embedded Software Engineer | IoT | Firmware | TinyML<br>
+            <h1 data-i18n="hero_title">Hi, I'm Hamza Mehboob</h1>
+            <p data-i18n-html="hero_subtitle">AI-Powered Embedded Software Engineer | IoT | Firmware | TinyML<br>
             Linux | RTOS | Yocto | Buildroot | Kernel Drivers | QT<br>
-            RAG/MCP | Automation (n8n, Node-RED, ThingsBoard) | Full Stack</p>
-            <a href="#contact" class="btn">Connect with Me</a>
+            RAG/MCP | Automation | Full Stack</p>
+            <a href="#contact" class="btn" data-i18n="hero_cta">Connect with Me</a>
         </div>
         <div class="home-window bottom-window">
-            <p>Welcome to my portfolio! Explore my projects and experience in embedded systems, IoT, and firmware development. <br>
+            <p data-i18n-html="hero_welcome">Welcome to my portfolio! Explore my projects and experience in embedded systems, IoT, and firmware development. <br>
                  Or ask LISA, my AI assistant, anything about my professional career.</p>
         </div>
     </section>
 
     <section id="about" class="section about">
-        <h2>About Me</h2>
-        <p>I'm an AI-powered Senior Embedded Software Engineer with 10+ years of experience across embedded systems, IoT products, and software development. I build end-to-end solutions spanning RTOS and bare-metal firmware, Linux (Yocto/Buildroot), desktop apps (QT/wxWidgets), web tools, and secure cloud-connected workflows. At Innovative Systems, I lead Smart RTU development for SCADA integrations across IEC 60870, DNP3, and Modbus, while also driving AI-assisted engineering workflows using RAG/MCP, Claude, Copilot, and Cursor. I hold an M.Sc. in Electrical Engineering from UET Lahore and focus on secure, scalable, and production-ready systems.</p>
+        <h2 data-i18n="section_about">About Me</h2>
+        <p data-i18n="about_text">I'm an AI-powered Senior Embedded Software Engineer with 10+ years of experience across embedded systems, IoT products, and software development. I build end-to-end solutions spanning RTOS and bare-metal firmware, Linux (Yocto/Buildroot), desktop apps (QT/wxWidgets), web tools, and secure cloud-connected workflows. At Innovative Systems, I lead Smart RTU development for SCADA integrations across IEC 60870, DNP3, and Modbus, while also driving AI-assisted engineering workflows using RAG/MCP, Claude, Copilot, and Cursor. I hold an M.Sc. in Electrical Engineering from UET Lahore and focus on secure, scalable, and production-ready systems.</p>
     </section>
 
     <section id="technologies" class="section technologies">
-        <h2>Technologies</h2>
+        <h2 data-i18n="section_technologies">Technologies</h2>
         <div class="tech-grid">
-            <div class="tech-item">Embedded C/C++/RUST, MISRA C, bare-metal</div>
-            <div class="tech-item">Software: QT, wxWidgets, Python, Java, C#, Linux/Windows/Android apps</div>
-            <div class="tech-item">RTOS (FreeRTOS, TI-RTOS, Micrium)</div>
-            <div class="tech-item">Linux (Yocto, Buildroot, Device Tree, U-Boot, Kernel Drivers)</div>
-            <div class="tech-item">AI/ML (TensorFlow, Keras, TinyML, Edge Impulse)</div>
-            <div class="tech-item">AI-Powered Development (RAG/MCP, Copilot, Claude, Cursor, prompt engineering)</div>
-            <div class="tech-item">IoT Protocols (MQTT, Modbus, DNP3, IEC 60870-5-101/104, IEC 61850)</div>
-            <div class="tech-item">Interfaces (UART, SPI, I2C, CAN, Ethernet)</div>
-            <div class="tech-item">Connectivity (Wi-Fi, Ethernet, Bluetooth, Zigbee, Cellular, NFC)</div>
-            <div class="tech-item">DevOps (Git, Jira, CI/CD, Docker, Pytest)</div>
-            <div class="tech-item">UI/UX (Qt, wxWidgets, WPF, Android Studio)</div>
-            <div class="tech-item">Hardware (STM32, TI, Microchip, PIC, Raspberry Pi, SoC, SoM, PCB Design)</div>
-            <div class="tech-item">Security (TLS, SHA Cryptography, Secure Boot)</div>
-            <div class="tech-item">Automation (n8n, Node-RED, ThingsBoard)</div>
+            <div class="tech-item" data-i18n="tech_1">Embedded C/C++/RUST, MISRA C, bare-metal</div>
+            <div class="tech-item" data-i18n="tech_2">Software: QT, wxWidgets, Python, Java, C#, Node.js, React.js, Linux/Windows/Android apps</div>
+            <div class="tech-item" data-i18n="tech_3">RTOS (FreeRTOS, TI-RTOS, Micrium)</div>
+            <div class="tech-item" data-i18n="tech_4">Linux (Yocto, Buildroot, Device Tree, U-Boot, Kernel Drivers)</div>
+            <div class="tech-item" data-i18n="tech_5">AI/ML (TensorFlow, Keras, TinyML, Edge Impulse)</div>
+            <div class="tech-item" data-i18n="tech_6">AI-Powered Development (RAG/MCP, Copilot, Claude, Cursor, prompt engineering)</div>
+            <div class="tech-item" data-i18n="tech_7">IoT Protocols (MQTT, Modbus, DNP3, IEC 60870-5-101/104, IEC 61850)</div>
+            <div class="tech-item" data-i18n="tech_8">Interfaces (UART, SPI, I2C, CAN, Ethernet)</div>
+            <div class="tech-item" data-i18n="tech_9">Connectivity (Wi-Fi, Ethernet, Bluetooth, Zigbee, Cellular, NFC)</div>
+            <div class="tech-item" data-i18n="tech_10">DevOps (Git, Jira, CI/CD, Jenkins, Docker, Kubernetes, Pytest)</div>
+            <div class="tech-item" data-i18n="tech_11">UI/UX (Qt, wxWidgets, WPF, Android Studio)</div>
+            <div class="tech-item" data-i18n="tech_12">Hardware (STM32, TI, Microchip, PIC, Raspberry Pi, SoC, SoM, PCB Design)</div>
+            <div class="tech-item" data-i18n="tech_13">Security (TLS, SHA Cryptography, Secure Boot)</div>
+            <div class="tech-item" data-i18n="tech_14">Automation (n8n, Node-RED, ThingsBoard)</div>
         </div>
     </section>
 
     <section id="experience" class="section experience">
-        <h2>Experience</h2>
+        <h2 data-i18n="section_experience">Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Firmware Engineer</h3>
-                    <p><a href="https://www.isys.sa/isys/index.asp" target="_blank">Innovative Systems</a>, Riyadh, Saudi Arabia</p>
-                    <button class="toggle-btn">Show Details</button>
+                    <h3 data-i18n="exp_1_title">Firmware Engineer</h3>
+                    <p data-i18n-html="exp_1_company"><a href="https://www.isys.sa/isys/index.asp" target="_blank">Innovative Systems</a>, Riyadh, Saudi Arabia</p>
+                    <button class="toggle-btn" data-i18n="btn_show_details">Show Details</button>
                 </div>
                 <div class="timeline-content">
-                    <p>Sep 2023 - Present</p>
-                    <p>Leading Smart RTU development for grid station monitoring from requirements to deployment. Managing a 5-person team and delivering Linux-based STM32MP13X/SAM9X60 systems connected with digital/analog I/O cards and communication modules. Implemented 12 SCADA communication paths across IEC 60870-5-101/104, DNP3, and Modbus (serial and Ethernet), developed multi-threaded C++ applications, and maintained Yocto/Buildroot images. Built QT tools (simulator/configurator), HTTPD web UI, kernel/driver support, and AI-enabled R&D workflows using local RAG/MCP and n8n-based automation agents.</p>
+                    <p data-i18n="exp_1_date">Sep 2023 - Present</p>
+                    <p data-i18n="exp_1_desc">Leading Smart RTU development for grid station monitoring from requirements to deployment. Managing a 5-person team and delivering Linux-based STM32MP13X/SAM9X60 systems connected with digital/analog I/O cards and communication modules. Implemented 12 SCADA communication paths across IEC 60870-5-101/104, DNP3, and Modbus (serial and Ethernet), developed multi-threaded C++ applications, and maintained Yocto/Buildroot images. Built QT tools (simulator/configurator), HTTPD web UI, kernel/driver support, and AI-enabled R&D workflows using local RAG/MCP and n8n-based automation agents.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Senior Specialist Engineer</h3>
-                    <p><a href="https://www.u-blox.com/" target="_blank">u-blox</a>, Remote</p>
-                    <button class="toggle-btn">Show Details</button>
+                    <h3 data-i18n="exp_2_title">Senior Specialist Engineer</h3>
+                    <p data-i18n-html="exp_2_company"><a href="https://www.u-blox.com/" target="_blank">u-blox</a>, Remote</p>
+                    <button class="toggle-btn" data-i18n="btn_show_details">Show Details</button>
                 </div>
                 <div class="timeline-content">
-                    <p>Jan 2021 - Aug 2023</p>
-                    <p>Developed cross-platform C++ desktop applications using wxWidgets for AT command automation. Automated GUI testing with Selenium, WinAppDriver, and Pytest. Implemented 3GPP 27.10 Mux protocol stack for modem communication and optimized log analysis for 3G/4G chipsets using Python and Wireshark.</p>
+                    <p data-i18n="exp_2_date">Jan 2021 - Aug 2023</p>
+                    <p data-i18n="exp_2_desc">Developed cross-platform C++ desktop applications using wxWidgets for AT command automation. Automated GUI testing with Selenium, WinAppDriver, and Pytest. Implemented 3GPP 27.10 Mux protocol stack for modem communication and optimized log analysis for 3G/4G chipsets using Python and Wireshark.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Embedded Systems Engineer</h3>
-                    <p><a href="https://www.powersoft19.com/" target="_blank">PowerSoft19</a>, Lahore, Pakistan</p>
-                    <button class="toggle-btn">Show Details</button>
+                    <h3 data-i18n="exp_3_title">Embedded Systems Engineer</h3>
+                    <p data-i18n-html="exp_3_company"><a href="https://www.powersoft19.com/" target="_blank">PowerSoft19</a>, Lahore, Pakistan</p>
+                    <button class="toggle-btn" data-i18n="btn_show_details">Show Details</button>
                 </div>
                 <div class="timeline-content">
-                    <p>Jun 2018 - Dec 2020</p>
-                    <p>Developed IoT gateways and cellular-connected devices for <a href="https://www.indsci.com/" target="_blank">Industrial Scientific</a> (RGX Gateway) and Aware360. Implemented FOTA systems and cellular stack tests using FreeRTOS and Micrium RTOS on Linux gateways (TGX Gateway). Designed SHA-256 encrypted Wi-Fi/Ethernet web interfaces and tested Telit HE910/LE910 modems. Led Jira-based agile workflows and collaborated with international clients.</p>
+                    <p data-i18n="exp_3_date">Jun 2018 - Dec 2020</p>
+                    <p data-i18n-html="exp_3_desc">Developed IoT gateways and cellular-connected devices for <a href="https://www.indsci.com/" target="_blank">Industrial Scientific</a> (RGX Gateway) and Aware360. Implemented FOTA systems and cellular stack tests using FreeRTOS and Micrium RTOS on Linux gateways (TGX Gateway). Designed SHA-256 encrypted Wi-Fi/Ethernet web interfaces and tested Telit HE910/LE910 modems. Led Jira-based agile workflows and collaborated with international clients.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Firmware Design Engineer</h3>
-                    <p><a href="https://kbk.com.pk/" target="_blank">KBK Electronics</a>, Lahore, Pakistan</p>
-                    <button class="toggle-btn">Show Details</button>
+                    <h3 data-i18n="exp_4_title">Firmware Design Engineer</h3>
+                    <p data-i18n-html="exp_4_company"><a href="https://kbk.com.pk/" target="_blank">KBK Electronics</a>, Lahore, Pakistan</p>
+                    <button class="toggle-btn" data-i18n="btn_show_details">Show Details</button>
                 </div>
                 <div class="timeline-content">
-                    <p>Feb 2016 - Jun 2018</p>
-                    <p>Engineered firmware for 3-phase Smart Energy Meters (71M6543G SoC), handling metering, billing, and power management. Developed WPF-based Windows software for meter communication over optical ports. Ensured IEC 62056/DLMS compliance and participated in hardware design reviews.</p>
+                    <p data-i18n="exp_4_date">Feb 2016 - Jun 2018</p>
+                    <p data-i18n="exp_4_desc">Engineered firmware for 3-phase Smart Energy Meters (71M6543G SoC), handling metering, billing, and power management. Developed WPF-based Windows software for meter communication over optical ports. Ensured IEC 62056/DLMS compliance and participated in hardware design reviews.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Application Engineer</h3>
-                    <p>Hunch Automation, Lahore</p>
-                    <button class="toggle-btn">Show Details</button>
+                    <h3 data-i18n="exp_5_title">Application Engineer</h3>
+                    <p data-i18n="exp_5_company">Hunch Automation, Lahore</p>
+                    <button class="toggle-btn" data-i18n="btn_show_details">Show Details</button>
                 </div>
                 <div class="timeline-content">
-                    <p>Nov 2015 - Jan 2016</p>
-                    <p>Developed Android apps and Windows tools for Modbus-based energy monitoring systems. Built firmware using PIC16/PIC24, integrating RS232/RS485 communications with Delta PLC/HMI systems.</p>
+                    <p data-i18n="exp_5_date">Nov 2015 - Jan 2016</p>
+                    <p data-i18n="exp_5_desc">Developed Android apps and Windows tools for Modbus-based energy monitoring systems. Built firmware using PIC16/PIC24, integrating RS232/RS485 communications with Delta PLC/HMI systems.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="education" class="section education">
-        <h2>Education</h2>
+        <h2 data-i18n="section_education">Education</h2>
         <div class="education-item">
-            <p><strong>M.Sc. in Electrical Engineering (Computer Major)</strong><br>UET Lahore | 2017 - 2019 | CGPA: 3.6/4.0</p>
+            <p data-i18n-html="edu_1"><strong>M.Sc. in Electrical Engineering (Computer Major)</strong><br>UET Lahore | 2017 - 2019 | CGPA: 3.6/4.0</p>
         </div>
         <div class="education-item">
-            <p><strong>B.Sc. in Electrical Engineering</strong><br>UET Lahore | 2011 - 2015 | CGPA: 3.3/4.0</p>
+            <p data-i18n-html="edu_2"><strong>B.Sc. in Electrical Engineering</strong><br>UET Lahore | 2011 - 2015 | CGPA: 3.3/4.0</p>
         </div>
     </section>
 
     <section id="projects" class="section projects">
-        <h2>Projects</h2>
+        <h2 data-i18n="section_projects">Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>RGX Gateway for Industrial Scientific</h3>
-                <p>Developed firmware for the RGX Gateway, a wireless cloud-connected device for real-time gas monitoring in hazardous locations. Implemented secure IoT communication using FreeRTOS and LENS Wireless, with SHA-256 encrypted Wi-Fi/Ethernet interfaces. Technologies used: Embedded C, FreeRTOS, Linux, MQTT, SHA-256. <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" target="_blank">Learn more</a>.</p>
-                <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" class="btn" target="_blank">View Project</a>
+                <h3 data-i18n="proj_1_title">RGX Gateway for Industrial Scientific</h3>
+                <p data-i18n-html="proj_1_desc">Developed firmware for the RGX Gateway, a wireless cloud-connected device for real-time gas monitoring in hazardous locations. Implemented secure IoT communication using FreeRTOS and LENS Wireless, with SHA-256 encrypted Wi-Fi/Ethernet interfaces. Technologies used: Embedded C, FreeRTOS, Linux, MQTT, SHA-256. <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" target="_blank">Learn more</a>.</p>
+                <a href="https://www.indsci.com/en/gas-detectors/wireless/rgxtm" class="btn" target="_blank" data-i18n="btn_view_project">View Project</a>
             </div>
             <div class="project-card">
-                <h3>TGX Gateway for Industrial Scientific</h3>
-                <p>Designed and implemented firmware for the TGX Gateway, a vehicle-installed IoT device for remote gas monitoring using cellular and satellite connectivity. Built Linux-based gateways with FOTA capabilities and tested Telit HE910/LE910 modems. Technologies used: Embedded C, Linux, Micrium RTOS, Cellular (3G/4G). <a href="https://www.indsci.com/en/gas-detectors/wireless/tgxtm" target="_blank">Learn more</a>.</p>
-                <a href="https://www.indsci.com/en/gas-detectors/wireless/tgxtm" class="btn" target="_blank">View Project</a>
+                <h3 data-i18n="proj_2_title">TGX Gateway for Industrial Scientific</h3>
+                <p data-i18n-html="proj_2_desc">Designed and implemented firmware for the TGX Gateway, a vehicle-installed IoT device for remote gas monitoring using cellular and satellite connectivity. Built Linux-based gateways with FOTA capabilities and tested Telit HE910/LE910 modems. Technologies used: Embedded C, Linux, Micrium RTOS, Cellular (3G/4G). <a href="https://www.indsci.com/en/gas-detectors/wireless/tgxtm" target="_blank">Learn more</a>.</p>
+                <a href="https://www.indsci.com/en/gas-detectors/wireless/tgxtm" class="btn" target="_blank" data-i18n="btn_view_project">View Project</a>
             </div>
             <div class="project-card">
-                <h3>Smart RTU for Grid Management</h3>
-                <p>Led the development of a Smart Remote Terminal Unit for grid management, integrating IEC 60870-5-104 protocol and secure communication. Built Yocto/Buildroot-based Linux images and a Qt configurator with HTTPD web UI. Technologies used: Embedded C++, Linux, Qt, IEC 60870, HTTPD.</p>
-                <a href="#" class="btn">View Project</a>
+                <h3 data-i18n="proj_3_title">Smart RTU for Grid Management</h3>
+                <p data-i18n="proj_3_desc">Led the development of a Smart Remote Terminal Unit for grid management, integrating IEC 60870-5-104 protocol and secure communication. Built Yocto/Buildroot-based Linux images and a Qt configurator with HTTPD web UI. Technologies used: Embedded C++, Linux, Qt, IEC 60870, HTTPD.</p>
+                <a href="#" class="btn" data-i18n="btn_view_project">View Project</a>
             </div>
             <div class="project-card">
-                <h3>3-phase Smart Energy Meter Firmware</h3>
-                <p>Engineered firmware for 3-phase Smart Energy Meters using the 71M6543G SoC, ensuring IEC 62056/DLMS compliance. Developed WPF-based Windows software for meter communication. Technologies used: Embedded C, WPF, IEC 62056, Optical Communication.</p>
-                <a href="https://kbk.com.pk/products/three-phase-four-wire-whole-current-static-energy-meter/" class="btn" target="_blank" >View Project</a>
+                <h3 data-i18n="proj_4_title">3-phase Smart Energy Meter Firmware</h3>
+                <p data-i18n="proj_4_desc">Engineered firmware for 3-phase Smart Energy Meters using the 71M6543G SoC, ensuring IEC 62056/DLMS compliance. Developed WPF-based Windows software for meter communication. Technologies used: Embedded C, WPF, IEC 62056, Optical Communication.</p>
+                <a href="https://kbk.com.pk/products/three-phase-four-wire-whole-current-static-energy-meter/" class="btn" target="_blank" data-i18n="btn_view_project">View Project</a>
             </div>
             <div class="project-card">
-                <h3>Single Phase Smart Energy Meter Firmware</h3>
-                <p>Engineered firmware for Single Phase Smart Energy Meters. Worked on basic drivers, communication protocols, and ensured compliance with industry standards.</p>
-                <a href="https://kbk.com.pk/products/single-phase-static-energy-meter/" class="btn" target="_blank">View Project</a>
+                <h3 data-i18n="proj_5_title">Single Phase Smart Energy Meter Firmware</h3>
+                <p data-i18n="proj_5_desc">Engineered firmware for Single Phase Smart Energy Meters. Worked on basic drivers, communication protocols, and ensured compliance with industry standards.</p>
+                <a href="https://kbk.com.pk/products/single-phase-static-energy-meter/" class="btn" target="_blank" data-i18n="btn_view_project">View Project</a>
             </div>
             <div class="project-card">
-                <h3>m-center software for u-blox modules</h3>
-                <p>Developed m-center software for u-blox modules, enabling seamless integration and management of IoT devices. Implemented features for device configuration, monitoring, and firmware updates. Technologies used: Embedded C, u-blox APIs, MQTT.</p>
-                <a href="https://www.u-blox.com/en/m-center-user-guide" class="btn" target="_blank">View Project</a>
+                <h3 data-i18n="proj_6_title">m-center software for u-blox modules</h3>
+                <p data-i18n="proj_6_desc">Developed m-center software for u-blox modules, enabling seamless integration and management of IoT devices. Implemented features for device configuration, monitoring, and firmware updates. Technologies used: Embedded C, u-blox APIs, MQTT.</p>
+                <a href="https://www.u-blox.com/en/m-center-user-guide" class="btn" target="_blank" data-i18n="btn_view_project">View Project</a>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:hamzamehboob103@gmail.com">hamzamehboob103@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/hamzamehboob103" target="_blank">hamzamehboob103</a></p>
-        <p>GitHub: <a href="https://github.com/HamzaMehboob" target="_blank">HamzaMehboob</a></p>
+        <h2 data-i18n="section_contact">Contact</h2>
+        <p><span data-i18n="contact_email">Email:</span> <a href="mailto:hamzamehboob103@gmail.com">hamzamehboob103@gmail.com</a></p>
+        <p><span data-i18n="contact_linkedin">LinkedIn:</span> <a href="https://linkedin.com/in/hamzamehboob103" target="_blank">hamzamehboob103</a></p>
+        <p><span data-i18n="contact_github">GitHub:</span> <a href="https://github.com/HamzaMehboob" target="_blank">HamzaMehboob</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Hamza Mehboob. All rights reserved.</p>
+        <p data-i18n="footer_copyright">&copy; 2025 Hamza Mehboob. All rights reserved.</p>
         <div class="social-links">
             <a href="https://linkedin.com/in/hamzamehboob103" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/HamzaMehboob" target="_blank"><i class="fab fa-github"></i></a>
@@ -211,32 +223,33 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <!-- Add this just before </body>, replacing previous chatbot HTML -->
     <div id="chat-widget-container" class="hidden">
         <div id="chat-popup">
             <div class="chat-header">
-                <h3>Lisa, Hamza’s AI Assistant</h3>
+                <h3 data-i18n="chat_title">Lisa, Hamza's AI Assistant</h3>
                 <span id="chat-close" class="cursor-pointer">✕</span>
             </div>
             <div id="chat-messages" class="chat-messages"></div>
             <div class="chat-input">
-                <textarea id="chat-input-text" placeholder="Ask Lisa about my embedded software, AI workflows, IoT, or resume updates..."></textarea>
-                <button id="chat-send">Send</button>
+                <textarea id="chat-input-text" data-i18n-placeholder="chat_placeholder" placeholder="Ask Lisa about my embedded software, AI workflows, IoT, or resume updates..."></textarea>
+                <button id="chat-send" data-i18n="chat_send">Send</button>
             </div>
         </div>
     </div>
     <button id="chat-toggle" class="chat-toggle">💬 Lisa</button>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJGFWJWNL2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KJGFWJWNL2');
+    </script>
+    <script src="js/theme-palettes.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJGFWJWNL2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KJGFWJWNL2');
-
-</script>
