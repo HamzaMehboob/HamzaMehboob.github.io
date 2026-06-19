@@ -5,7 +5,9 @@
   const DARK_MODE_KEY = 'darkMode';
 
   function isDarkMode() {
-    return localStorage.getItem(DARK_MODE_KEY) === 'true';
+    const stored = localStorage.getItem(DARK_MODE_KEY);
+    if (stored === null) return true;
+    return stored === 'true';
   }
 
   function setDarkModeAttr(dark) {
