@@ -70,6 +70,41 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
+    document.querySelectorAll('.copy-contact-btn').forEach(button => {
+        button.addEventListener('click', async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const value = button.getAttribute('data-copy') || '';
+            const originalText = button.textContent;
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(value);
+                } else {
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = value;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
+
+                button.textContent = 'Copied';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 1800);
+            } catch (error) {
+                button.textContent = 'Try Again';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 1800);
+            }
+        });
+    });
+
     document.addEventListener('touchstart', (e) => {
         if (e.touches.length > 1) {
             e.preventDefault();
